@@ -11,13 +11,13 @@ def gerar_query_sql(pergunta: str, colunas: dict) -> str:
     
     # Criação do prompt para o OpenAI, incluindo as colunas do banco
     prompt = f"""
-Você é um assistente de SQL que opera para o banco de dados ficticio chamado Dio Bank.
-Você deve gerar queries baseadas na seguinte estrutura do banco de dados:
-{colunas}
+    Você é um assistente de SQL que opera para o banco de dados ficticio chamado DioBank.
+    Você deve gerar queries baseadas na seguinte estrutura do banco de dados:
+    {colunas}
 
-Pergunta: {pergunta}
-Resposta em SQL:
-"""
+    Pergunta: {pergunta}
+    Resposta em SQL:
+    """
     
     # Usando a nova API do OpenAI para chat
     response = openai.ChatCompletion.create(

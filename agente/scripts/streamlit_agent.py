@@ -15,13 +15,20 @@ st.title("🏛️ dioBank Consultas")
 
 # --- CONFIGURAÇÃO DA SIDEBAR (INSERÇÃO DE CREDENCIAIS) ---
 
+# Carregar variáveis de ambiente
+api=os.getenv("OPENAI_API_KEY")
+host=os.getenv("MYSQL_HOST")
+user=os.getenv("MYSQL_USER")
+password=os.getenv("MYSQL_PASSWORD")
+database=os.getenv("MYSQL_DB")
+
 # Sidebar para credenciais
 st.sidebar.header("🔐 Configurações")
-openai_api_key = st.sidebar.text_input("Chave da API OpenAI", type="password")
-mysql_host = st.sidebar.text_input("MySQL Host", value="localhost")
-mysql_user = st.sidebar.text_input("Usuário MySQL", value="root")
-mysql_password = st.sidebar.text_input("Senha MySQL", type="password")
-mysql_db = st.sidebar.text_input("Nome do Banco de Dados", value="dioBank")
+openai_api_key = st.sidebar.text_input("Chave da API OpenAI", type="password", value=api)
+mysql_host = st.sidebar.text_input("MySQL Host", value=host)
+mysql_user = st.sidebar.text_input("Usuário MySQL", value=user)
+mysql_password = st.sidebar.text_input("Senha MySQL", type="password", value=password)
+mysql_db = st.sidebar.text_input("Nome do Banco de Dados", value=database)
 
 
 # --- MEIO: INTERAÇÃO COM O USUÁRIO E ENTRADA DA PERGUNTA ---
@@ -161,7 +168,7 @@ def executar_query(query):
         return [], []
 
 # Salvar histórico
-# Salvar histórico
+
 def salvar_historico(pergunta, query, resultado):
     try:
         conn = mysql.connector.connect(

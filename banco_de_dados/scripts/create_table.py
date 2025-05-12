@@ -134,10 +134,10 @@ for linha in range(n):
 conn.commit()
 
 # Exportar os dados das tabelas para CSV
-export_to_csv("SELECT * FROM clientes", 'banco_de_dados/datasets/clientes.csv', ['cliente_id', 'nome', 'cpf', 'email'])
-export_to_csv("SELECT * FROM enderecos", 'banco_de_dados/datasets/enderecos.csv', ['endereco_id', 'cliente_id', 'rua', 'cidade', 'estado', 'cep'])
-export_to_csv("SELECT * FROM movimentacoes", 'banco_de_dados/datasets/movimentacoes.csv', ['movimentacao_id', 'cliente_id', 'tipo_movimentacao', 'valor', 'data_movimentacao'])
-export_to_csv("SELECT * FROM pagamentos", 'banco_de_dados/datasets/pagamentos.csv', ['pagamento_id', 'cliente_id', 'valor', 'data_pagamento'])
+export_to_csv("SELECT * FROM clientes", '../datasets/clientes.csv', ['cliente_id', 'nome', 'cpf', 'email'])
+export_to_csv("SELECT * FROM enderecos", '../datasets/enderecos.csv', ['endereco_id', 'cliente_id', 'rua', 'cidade', 'estado', 'cep'])
+export_to_csv("SELECT * FROM movimentacoes", '../datasets/movimentacoes.csv', ['movimentacao_id', 'cliente_id', 'tipo_movimentacao', 'valor', 'data_movimentacao'])
+export_to_csv("SELECT * FROM pagamentos", '../datasets/pagamentos.csv', ['pagamento_id', 'cliente_id', 'valor', 'data_pagamento'])
 
 # Fechar a conexão com o banco de dados
 cursor.close()
